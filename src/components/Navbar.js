@@ -1,26 +1,38 @@
 import React from 'react';
 import { useAuth0 } from "../react-auth0-spa";
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import ".././App.css"
 
-const Navbar = () => {
+const Navbar = ({icon, title}) => {
 
     const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
     return (
-        <div>
-            {!isAuthenticated && (
-                <button onClick={() => loginWithRedirect({})}>Log in</button>
-            )}
-
-            {isAuthenticated && <button onClick={() => logout()}>Log out</button>}
-
+        <nav className="navbar bg-primary">
+            <h1>
+                <i className={icon}></i> {title}
+            </h1>
+            <ul>
+                <li>
+                {!isAuthenticated && (
+                <button className="btn" onClick={() => loginWithRedirect({})}>Log in</button>
+                )}
+                </li>
+          
+                <li>
+                {isAuthenticated && <button className="btn" onClick={() => logout()}>Log out</button>}         
+                </li>    
+           
+              <li>      
             {isAuthenticated && (
                 <span>
-                    <NavLink exact to="/">Home</NavLink>&nbsp;
-                    <NavLink exact to="profile">Profile</NavLink>
+                    <Link className="btn" exact to="/">Home</Link>&nbsp;
+                    <Link className="btn" exact to="profile">Profile</Link>
                 </span>
             )}
-        </div>
+            </li>
+            </ul>
+        </nav>
     );
 };
 export default Navbar;

@@ -5,6 +5,7 @@ import Profile from './components/Profile';
 import history from "./utils/history";
 import { Route, Switch } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute';
+import Courses from './components/users/Courses';
 
 function App() {
 
@@ -12,15 +13,14 @@ function App() {
 
   if (loading) {
     return <div>Loading...</div>
-  }
-
+  } 
   return (
     <div className="App">
       <header>
-        <Navbar/>
+        <Navbar icon={"fas fa-clipboard-check"} title={"Flex Course Manager"}/>
       </header>
       <Switch>
-        <Route exact path="/" />
+        <Route exact path="/" render={routeProps => <Courses />} />
         <PrivateRoute exact path="/profile" render={routeProps => <Profile {...routeProps}/>}/>
       </Switch>
     </div>
