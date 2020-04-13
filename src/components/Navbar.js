@@ -7,7 +7,6 @@ import ".././App.css"
 const Navbar = (props) => {
 
     const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
-    console.log(props);
     
     return (
         <nav className="navbar bg-primary">

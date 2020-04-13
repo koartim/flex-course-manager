@@ -8,8 +8,6 @@ const Profile = () => {
         return <div>Loading...</div>
     }
 
-    console.log(user) 
-    
     return (
         <Fragment>
             <img src={user.picture} className="round-img" style={{width: '60px'}} alt="Profile" />
