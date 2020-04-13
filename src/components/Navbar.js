@@ -27,6 +27,7 @@ const Navbar = ({icon, title}) => {
             {isAuthenticated && (
                 <span>
                     <Link className="btn" exact to="/">Home</Link>&nbsp;
+                    <Link className="btn" exact to="/courses">Courses</Link>
                     <Link className="btn" exact to="profile">Profile</Link>
                 </span>
             )}

@@ -10,10 +10,9 @@ const Profile = () => {
 
     return (
         <Fragment>
-            <img src={user.picture} alt="Profile" />
+            <img src={user.picture} className="round-img" style={{width: '60px'}} alt="Profile" />
              <h2>{user.nickname}</h2>
              <p>{user.email}</p>
-             <code>{JSON.stringify(user, null, 2)}</code>
         </Fragment>
     )
 }

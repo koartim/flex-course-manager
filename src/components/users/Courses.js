@@ -1,32 +1,21 @@
 import React from 'react'
 import CourseItem from './CourseItem';
 
-class Users extends React.Component {
+const Courses = (props) => {
 
-    state = {
-        courses: []
-    }
+    return (
+        <div style={courseStyle}>            
+            {props.courses.map(course => (                    
+                <CourseItem course={course} key={course.id}/>
+            ))}
+        </div>
+     ) 
+  }
 
-    async componentDidMount() {
-        await fetch("courses.json")
-            .then(rsp => rsp.json())
-            .then(data => {
-                this.setState({
-                    courses: data
-                })
-            })
-    }
-
-    render() {
-        console.log(this.state.courses)
-        return (
-            <div>
-                {this.state.courses.map(course => (
-                    <CourseItem course={course}/>
-                ))}
-            </div>
-        )
-    }
+const courseStyle = {
+    display: 'grid',
+    gridTemplateColumns: 'reapeat(3, 1fr)',
+    gridGap: '1rem'
 }
 
-export default Users
+export default Courses;

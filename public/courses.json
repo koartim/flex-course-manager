@@ -1,8 +1,0 @@
-[
-    {"id": "1", "name": "React", "difficulty": "intermediate", "img_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png" },
-    {"id": "2", "name": "Angular", "difficulty": "intermediate", "img_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/1200px-Angular_full_color_logo.svg.png" },
-    {"id": "3", "name": "SpringBoot", "difficulty": "advanced", "img_url": "https://keyholesoftware.com/wp-content/uploads/Spring-Boot.png"},
-    {"id": "4", "name": "Java", "difficulty": "beginner", "img_url": "https://upload.wikimedia.org/wikipedia/en/thumb/3/30/Java_programming_language_logo.svg/1200px-Java_programming_language_logo.svg.png"},
-    {"id": "5", "name": "JavaScript", "difficulty": "beginner", "img_url": "https://pluralsight2.imgix.net/paths/images/javascript-542e10ea6e.png"}
-]
-
