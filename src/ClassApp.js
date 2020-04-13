@@ -5,6 +5,7 @@ import Profile from './components/Profile';
 import Courses from './components/users/Courses';
 import Course from './components/users/Course';
 import Search from './components/layout/Search';
+import Navbar from './components/Navbar';
 
 class ClassApp extends Component {
 
@@ -26,11 +27,14 @@ class ClassApp extends Component {
         const {courses} = this.state
     return (
         <div>
+        <Navbar/>
+        <div>
         <Switch>
             <Route exact path="/courses" render={routeProps => <Courses {...routeProps} courses={courses}/>} />
             <Route exact path="/courses/:id" render={routeProps => <Course {...routeProps}/>}/>
             <PrivateRoute exact path="/profile" render={routeProps => <Profile {...routeProps}/>}/>
         </Switch>
+        </div>
     </div>
     )
 }

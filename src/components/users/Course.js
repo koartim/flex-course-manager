@@ -3,6 +3,10 @@ import '../../App.css'
 
 class Course extends Component {
 
+    state = {
+        course: {}
+    }
+
    componentDidMount() {
        fetch(`http://localhost:4000/courses/${this.props.match.params.id}`)
         .then(rsp => rsp.json())
@@ -14,7 +18,7 @@ class Course extends Component {
    }
 
 render() { 
-    console.log(this.state.course)
+    console.log(this.props)
     return (
         <div>       
             <h1>{this.state.course.name}</h1>

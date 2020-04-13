@@ -13,14 +13,10 @@ function App() {
     return <div>Loading...</div>
   } 
   return (
-    <div className="App">
-      <header>
-        <Navbar icon={"fas fa-clipboard-check"} title={"Flex Course Manager"}/>
-      </header>
       <div>
         <ClassApp />
       </div>
-    </div>
+  
   );
 }
 
