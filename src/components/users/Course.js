@@ -17,13 +17,17 @@ class Course extends Component {
         })
    }
 
+   addCourse = () => {
+       localStorage.setItem("course", JSON.stringify(this.state.course))
+   }
+
 render() { 
     console.log(this.props)
     return (
         <div>       
             <h1>{this.state.course.name}</h1>
             <p>{this.state.course.difficulty}</p>
-            <button>Add Course</button>
+            <button onClick={this.addCourse}>Add Course</button>
         </div>
     )
   }

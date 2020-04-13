@@ -8,11 +8,19 @@ const Profile = () => {
         return <div>Loading...</div>
     }
 
+    console.log(user) 
+    
     return (
         <Fragment>
             <img src={user.picture} className="round-img" style={{width: '60px'}} alt="Profile" />
              <h2>{user.nickname}</h2>
              <p>{user.email}</p>
+             <ul>
+                 <h3>courses</h3>
+                 <li>
+                 </li>
+             </ul>
+             <code>{JSON.stringify(user, null, 2)}</code>
         </Fragment>
     )
 }
