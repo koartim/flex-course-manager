@@ -29,11 +29,11 @@ class ClassApp extends Component {
         <div>
         <Navbar icon={"fas fa-clipboard-check"} title={"Flex Course Manager"}/>
         <div>
-        <Switch>
-            <Route exact path="/courses" render={routeProps => <Courses {...routeProps} courses={courses}/>} />
-            <Route exact path="/courses/:id" render={routeProps => <Course {...routeProps}/>}/>
-            <PrivateRoute exact path="/profile" render={routeProps => <Profile {...routeProps}/>}/>
-        </Switch>
+            <Switch>
+                <Route exact path="/courses" render={routeProps => <Courses {...routeProps} courses={courses}/>} />
+                <Route exact path="/courses/:id" render={routeProps => <Course {...routeProps}/>}/>
+                <PrivateRoute exact path="/profile" render={routeProps => <Profile {...routeProps}/>}/>
+            </Switch>
         </div>
     </div>
     )

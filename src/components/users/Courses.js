@@ -14,7 +14,7 @@ const Courses = (props) => {
 
 const courseStyle = {
     display: 'grid',
-    gridTemplateColumns: 'reapeat(3, 1fr)',
+    gridTemplateColumns: 'repeat(3, 1fr)',
     gridGap: '1rem'
 }
 
