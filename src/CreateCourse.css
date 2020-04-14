@@ -1,0 +1,41 @@
+.CreateCourse {
+    margin-top: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    border: rgba(100, 230, 456, 1);
+}
+
+.CreateCourse h3 {
+    min-width: 100%;
+    margin-left: 80px;
+    margin-right: 80px;
+    font-size: 1rem;
+}
+
+.CreateCourse label {
+    min-width: 100%;
+    margin-left: 80px;
+    margin-right: 80px;
+    font-size: 1rem;
+}
+
+.CreateCourse input {
+    flex-grow: 1;
+    border: rgba(100, 230, 456, 1);
+    background: #f7f1f1;
+    margin-left: 100px;
+    margin-right: 100px;
+    padding: .55rem;
+    font-size: initial; 
+}
+
+.CreateCourse button {
+    padding: 0 1.3rem;
+    border: none;
+    background: #ff6666;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: 10x solid rgba(255, 255, 255, .3);
+    margin-left: 5px;
+}

@@ -27,7 +27,7 @@ const Navbar = (props) => {
               <li>      
             {isAuthenticated && (
                 <span>
-                    <Link className="btn" exact to="/">Home</Link>&nbsp;
+                    <Link className="btn" exact to="/newcourse">Add Course</Link>&nbsp;
                     <Link className="btn" exact to="/courses">Courses</Link>
                     <Link onClick={() => props.history.push("/profile")} className="btn" exact to="profile">Profile</Link>
                 </span>

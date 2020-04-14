@@ -24,9 +24,9 @@ class Course extends Component {
 render() { 
 
     return (
-        <div className="card grid-2" style={{margin: '8rem'}}> 
+        <div className="card grid-2" style={{margin: '6rem 8rem 8rem 8rem' }}> 
             <div className="all-center">
-                <img className="round-img" style={{width:'100px'}} src={this.state.course.img_url} alt=""/>       
+                <img className="round-img" style={{width: "150px"}} src={this.state.course.img_url} alt=""/>       
                 <h1>{this.state.course.name}</h1>
                 <p>{this.state.course.difficulty}</p>
                 <button className="btn btn-light my-1" onClick={this.addCourse}>Add Course</button>
