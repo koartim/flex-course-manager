@@ -8,7 +8,7 @@ class Course extends Component {
     }
 
    componentDidMount() {
-       fetch(`http://localhost:4000/courses/${this.props.match.params.id}`)
+       fetch(`http://localhost:4000/courses/${this.props.match.params.name}`)
         .then(rsp => rsp.json())
         .then(data => {
             this.setState({
@@ -29,6 +29,7 @@ render() {
                 <img className="round-img" style={{width: "150px"}} src={this.state.course.img_url} alt=""/>       
                 <h1>{this.state.course.name}</h1>
                 <p>{this.state.course.difficulty}</p>
+                <p>{this.state.course.description}</p>
                 <button className="btn btn-light my-1" onClick={this.addCourse}>Add Course</button>
             </div>
         </div>

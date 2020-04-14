@@ -44,7 +44,7 @@ class ClassApp extends Component {
         <div>
             <Switch>
                 <Route exact path="/courses" render={routeProps => <Courses {...routeProps} courses={courses}/>} />
-                <Route exact path="/courses/:id" render={routeProps => <Course {...routeProps}/>}/>
+                <Route exact path="/courses/:name" render={routeProps => <Course {...routeProps}/>}/>
                 <Route exact path="/newcourse" render={routeProps => <CreateCourse {...routeProps}/>}/>
                 <PrivateRoute exact path="/profile" render={routeProps => <Profile {...routeProps}/>}/>
             </Switch>

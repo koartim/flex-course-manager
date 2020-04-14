@@ -32,10 +32,10 @@
 .CreateCourse button {
     padding: 0 1.3rem;
     border: none;
-    background: #ff6666;
+    background:  rgba(100, 230, 456, 1);
     color: white;
     text-transform: uppercase;
     font-weight: bold;
     border: 10x solid rgba(255, 255, 255, .3);
-    margin-left: 5px;
+    margin-left: 80px;
 }

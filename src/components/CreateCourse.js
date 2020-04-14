@@ -40,8 +40,6 @@ class CreateCourse extends React.Component {
         return (
                 <div>
                 <form className="CreateCourse" onChange={this.handleChange} onSubmit={this.handleSubmit}>
-                    <label htmlFor="id">id</label>
-                    <input placeholder="ie. 1,2,3" type="text" name="id"/>
                     <label htmlFor="name">course name</label>
                     <input placeholder="ie. React, Angular..." type="text" name="name"/>
                     <label htmlFor="difficulty">difficulty</label>

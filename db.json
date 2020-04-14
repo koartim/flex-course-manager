@@ -1,63 +1,60 @@
 {
   "courses": [
     {
-      "id": "1",
+      "id": 1,
       "name": "React",
       "difficulty": "intermediate",
       "img_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png",
       "description": "React is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called “components"
     },
     {
-      "id": "2",
+      "id": 2,
       "name": "Angular",
       "difficulty": "intermediate",
       "img_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/1200px-Angular_full_color_logo.svg.png",
       "description": "AngularJS is a structural framework for dynamic web applications. It lets you use HTML as your template language and lets you extend HTML's syntax to express your application components clearly and succinctly. Its data binding and dependency injection eliminate much of the code you currently have to write. And it all happens within the browser, making it an ideal partner with any server technology."
     },
     {
-      "id": "3",
+      "id": 3,
       "name": "SpringBoot",
       "difficulty": "advanced",
       "img_url": "https://keyholesoftware.com/wp-content/uploads/Spring-Boot.png",
       "description": "The Spring Framework is an application framework and inversion of control container for the Java platform. The framework's core features can be used by any Java application, but there are extensions for building web applications on top of the Java EE (Enterprise Edition) platform. Although the framework does not impose any specific programming model, it has become popular in the Java community as an addition to, or even replacement for the Enterprise JavaBeans (EJB) model. The Spring Framework is open source."
     },
     {
-      "id": "4",
+      "id": 4,
       "name": "Java",
       "difficulty": "beginner",
       "img_url": "https://upload.wikimedia.org/wikipedia/en/thumb/3/30/Java_programming_language_logo.svg/1200px-Java_programming_language_logo.svg.png",
       "description": "Java is a general-purpose programming language that is class-based, object-oriented, and designed to have as few implementation dependencies as possible. It is intended to let application developers write once, run anywhere (WORA),[16] meaning that compiled Java code can run on all platforms that support Java without the need for recompilation.[17] Java applications are typically compiled to bytecode that can run on any Java virtual machine (JVM) regardless of the underlying computer architecture. The syntax of Java is similar to C and C++, but it has fewer low-level facilities than either of them. As of 2019, Java was one of the most popular programming languages in use according to GitHub,[18][19] particularly for client-server web applications, with a reported 9 million developers."
     },
     {
-      "id": "5",
+      "id": 5,
       "name": "JavaScript",
       "difficulty": "beginner",
       "img_url": "https://pluralsight2.imgix.net/paths/images/javascript-542e10ea6e.png",
       "description": "JavaScript® (often shortened to JS) is a lightweight, interpreted, object-oriented language with first-class functions, and is best known as the scripting language for Web pages, but it's used in many non-browser environments as well. It is a prototype-based, multi-paradigm scripting language that is dynamic, and supports object-oriented, imperative, and functional programming styles."
     },
     {
-      "id": "6",
+      "id": 5,
       "name": "Python",
       "difficulty": "beginner",
-      "img_url": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vexels.com%2Fpng-svg%2Fpreview%2F166477%2Fpython-programming-language-icon&psig=AOvVaw1fRu3nDclW5vaG9AMsG78F&ust=1586897111222000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLCLt8ii5ugCFQAAAAAdAAAAABAP",
+      "img_url": "https://freepngimg.com/thumb/python_logo/1-2-python-logo-png-thumb.png",
       "description": "Python is an interpreted, object-oriented, high-level programming language with dynamic semantics. Its high-level built in data structures, combined with dynamic typing and dynamic binding, make it very attractive for Rapid Application Development, as well as for use as a scripting or glue language to connect existing components together. Python's simple, easy to learn syntax emphasizes readability and therefore reduces the cost of program maintenance. Python supports modules and packages, which encourages program modularity and code reuse."
     },
     {
-      "id": "hu8FNXu"
-    },
-    {
+      "id": 6,
       "name": "CSS 3",
       "difficulty": "",
       "img_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1200px-CSS3_logo_and_wordmark.svg.png",
-      "description": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1200px-CSS3_logo_and_wordmark.svg.png",
-      "id": "jWa7NIq"
+      "description": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1200px-CSS3_logo_and_wordmark.svg.png"
     },
     {
-      "name": "CSS 3",
+      "name": "HTML 5",
       "difficulty": "",
-      "img_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1200px-CSS3_logo_and_wordmark.svg.png",
-      "description": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1200px-CSS3_logo_and_wordmark.svg.png",
-      "id": "S2x9Vg6"
+      "img_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/1200px-HTML5_logo_and_wordmark.svg.png",
+      "description": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/1200px-HTML5_logo_and_wordmark.svg.png",
+      "id": 7
     }
   ]
 }
