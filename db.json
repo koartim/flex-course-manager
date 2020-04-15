@@ -45,16 +45,37 @@
     {
       "id": 6,
       "name": "CSS 3",
-      "difficulty": "",
+      "difficulty": "beginner",
       "img_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1200px-CSS3_logo_and_wordmark.svg.png",
       "description": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1200px-CSS3_logo_and_wordmark.svg.png"
     },
     {
       "name": "HTML 5",
-      "difficulty": "",
+      "difficulty": "beginner",
       "img_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/1200px-HTML5_logo_and_wordmark.svg.png",
-      "description": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/1200px-HTML5_logo_and_wordmark.svg.png",
+      "description": "HTML 5, hyper text markup language",
       "id": 7
+    },
+    {
+      "name": "Pascal",
+      "difficulty": "",
+      "img_url": "https://static-s.aa-cdn.net/img/ios/461310295/6e5c910d970804a9c4b67a40eb3e0a0c?v=1",
+      "description": "https://static-s.aa-cdn.net/img/ios/461310295/6e5c910d970804a9c4b67a40eb3e0a0c?v=1",
+      "id": 8
+    },
+    {
+      "name": "Pascal",
+      "difficulty": "",
+      "img_url": "https://static-s.aa-cdn.net/img/ios/461310295/6e5c910d970804a9c4b67a40eb3e0a0c?v=1",
+      "description": "Pascal is an imperative and procedural programming language, designed by Niklaus Wirth as a small, efficient language intended to encourage good programming practices using structured programming and data structuring. It is named in honour of the French mathematician, philosopher and physicist Blaise Pascal.  Based on Wirth's bo",
+      "id": 9
+    },
+    {
+      "name": "Go!",
+      "difficulty": "",
+      "img_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Go_Logo_Blue.svg/1200px-Go_Logo_Blue.svg.png",
+      "description": "Go is a statically typed, compiled programming language designed at Google[14] by Robert Griesemer, Rob Pike, and Ken Thompson.[12] Go is syntactically similar to C, but with memory safety, garbage collection, structural typing,[6] and CSP-style concurrency",
+      "id": 10
     }
   ]
 }
