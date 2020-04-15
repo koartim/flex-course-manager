@@ -7,8 +7,9 @@ import Spinner from './Spinner';
 
 function App() {
 
-  const { loading } = useAuth0();
+  const { loading, user } = useAuth0();
 
+  localStorage.setItem("user", JSON.stringify({user}))
 
   if (loading) {
     return (
@@ -18,14 +19,14 @@ function App() {
       </div>
     <Spinner/>
     </div>
-    
+
     )
-  } 
+  }
   return (
       <div>
         <ClassApp />
       </div>
-  
+
   );
 }
 

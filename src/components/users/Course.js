@@ -1,40 +1,57 @@
 import React, { Component } from 'react'
 import '../../App.css'
+import { token, domain_url } from '../../token';
 
 class Course extends Component {
 
     state = {
-        course: {} 
+        course: {},
+        user: {},
+        status: "",
+        local_user: JSON.parse( localStorage.getItem("user") )
     }
 
    componentDidMount() {
-       fetch(`http://localhost:4000/courses/${this.props.match.params.name}`)
-        .then(rsp => rsp.json())
-        .then(data => {
-            this.setState({
-                course: data
-            })
-        })
+     Promise.all([
+       fetch(`http://localhost:4000/courses/${this.props.match.params.name}`),
+       fetch(`${domain_url}${this.state.local_user.user.sub}`, {
+         headers: {
+           'authorization':`Bearer ${token}`,
+           'Content-Type': 'application/json'
+         }
+       })
+     ])
+     .then(([res1, res2]) => {
+       this.setState({
+         status: "fetched"
+       });
+       return Promise.all([res1.json(), res2.json()])
+     })
+     .then(([res1, res2]) => {
+       this.setState({
+         course: res1,
+         user: res2
+       })
+     })
    }
 
    addCourse = () => {
         alert(`added ${this.state.course.name} to your courses!`)
+     this.state.user.user_metadata.courses.courses.push(this.state.course)
    }
 
-render() { 
-
+render() {
     return (
-        <div className="card grid-2" style={{margin: '6rem 8rem 8rem 8rem' }}> 
+        <div className="card grid-2" style={{margin: '6rem 8rem 8rem 8rem' }}>
             <div className="all-center">
-                <img className="round-img" style={{width: "150px"}} src={this.state.course.img_url} alt=""/>       
+                <img className="round-img" style={{width: "150px"}} src={this.state.course.img_url} alt=""/>
                 <h1>{this.state.course.name}</h1>
                 <p>{this.state.course.difficulty}</p>
                 <p>{this.state.course.description}</p>
-                <button className="btn btn-light my-1" onClick={this.addCourse}>Add Course</button>
+                <button onClick={this.addCourse}>Add Course</button>
             </div>
         </div>
-    )
+      )
+    }
   }
-}
-
 export default Course;
