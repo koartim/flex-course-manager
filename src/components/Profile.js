@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { useAuth0 } from "../react-auth0-spa";
+import { token } from '.././token'
 
 const Profile = () => {
     const { loading, user } = useAuth0();
@@ -16,6 +17,7 @@ const Profile = () => {
              <ul>
                  <h3>courses</h3>
                  <li>
+
                  </li>
              </ul>
              <code>{JSON.stringify(user, null, 2)}</code>
