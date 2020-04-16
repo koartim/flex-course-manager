@@ -36,45 +36,38 @@
       "description": "JavaScript® (often shortened to JS) is a lightweight, interpreted, object-oriented language with first-class functions, and is best known as the scripting language for Web pages, but it's used in many non-browser environments as well. It is a prototype-based, multi-paradigm scripting language that is dynamic, and supports object-oriented, imperative, and functional programming styles."
     },
     {
-      "id": 5,
+      "id": 6,
       "name": "Python",
       "difficulty": "beginner",
       "img_url": "https://freepngimg.com/thumb/python_logo/1-2-python-logo-png-thumb.png",
       "description": "Python is an interpreted, object-oriented, high-level programming language with dynamic semantics. Its high-level built in data structures, combined with dynamic typing and dynamic binding, make it very attractive for Rapid Application Development, as well as for use as a scripting or glue language to connect existing components together. Python's simple, easy to learn syntax emphasizes readability and therefore reduces the cost of program maintenance. Python supports modules and packages, which encourages program modularity and code reuse."
     },
     {
-      "id": 6,
+      "id": 7,
       "name": "CSS 3",
       "difficulty": "beginner",
       "img_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1200px-CSS3_logo_and_wordmark.svg.png",
-      "description": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1200px-CSS3_logo_and_wordmark.svg.png"
+      "description": "Cascading Style Sheets Level 3 (CSS3) is the iteration of the CSS standard used in the styling and formatting of Web pages. CSS3 incorporates the CSS2 standard with some changes and improvements. A key change is the division of standard into separate modules, which makes it easier to learn and understand"
     },
     {
       "name": "HTML 5",
       "difficulty": "beginner",
       "img_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/1200px-HTML5_logo_and_wordmark.svg.png",
-      "description": "HTML 5, hyper text markup language",
-      "id": 7
-    },
-    {
-      "name": "Pascal",
-      "difficulty": "",
-      "img_url": "https://static-s.aa-cdn.net/img/ios/461310295/6e5c910d970804a9c4b67a40eb3e0a0c?v=1",
-      "description": "https://static-s.aa-cdn.net/img/ios/461310295/6e5c910d970804a9c4b67a40eb3e0a0c?v=1",
+      "description": "HTML 5 is a revision of the Hypertext Markup Language (HTML), the standard programming language for describing the contents and appearance of Web pages. HTML5 was developed to solve compatibility problems that affect the current standard, HTML4.",
       "id": 8
     },
     {
       "name": "Pascal",
       "difficulty": "",
       "img_url": "https://static-s.aa-cdn.net/img/ios/461310295/6e5c910d970804a9c4b67a40eb3e0a0c?v=1",
-      "description": "Pascal is an imperative and procedural programming language, designed by Niklaus Wirth as a small, efficient language intended to encourage good programming practices using structured programming and data structuring. It is named in honour of the French mathematician, philosopher and physicist Blaise Pascal.  Based on Wirth's bo",
+      "description": "Pascal is a procedural programming language that supports structured programming and data structures to encourage good programming practices. Pascal was originally developed in 1970 by Niklaus Wirth and is named after the famous French mathematician Blaise Pascal.",
       "id": 9
     },
     {
       "name": "Go!",
       "difficulty": "",
       "img_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Go_Logo_Blue.svg/1200px-Go_Logo_Blue.svg.png",
-      "description": "Go is a statically typed, compiled programming language designed at Google[14] by Robert Griesemer, Rob Pike, and Ken Thompson.[12] Go is syntactically similar to C, but with memory safety, garbage collection, structural typing,[6] and CSP-style concurrency",
+      "description": "Go is a statically typed, compiled programming language designed at Google by Robert Griesemer, Rob Pike, and Ken Thompson. Go is syntactically similar to C, but with memory safety, garbage collection, structural typing, and CSP-style concurrency",
       "id": 10
     }
   ]

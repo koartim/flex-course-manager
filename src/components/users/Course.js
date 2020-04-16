@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import '../../App.css'
 import { token, domain_url } from '../../token';
 
@@ -41,13 +41,21 @@ class Course extends Component {
    }
 
 render() {
+  const { course, user, status, local_user } = this.state;
     return (
-        <div className="card grid-2" style={{margin: '6rem 8rem 8rem 8rem' }}>
+        <div className="card grid-1" style={{margin: '6rem 8rem 8rem 8rem' }}>
             <div className="all-center">
                 <img className="round-img" style={{width: "150px"}} src={this.state.course.img_url} alt=""/>
-                <h1>{this.state.course.name}</h1>
-                <p>{this.state.course.difficulty}</p>
-                <p>{this.state.course.description}</p>
+                <h1>{course.name}</h1>
+                <strong><h3>{course.difficulty}</h3></strong>
+                <div>
+                  {course.description && (
+                    <Fragment>
+                      <p>{course.description}</p>
+                    </Fragment>
+                  )}
+                </div>
+                
                 <button onClick={this.addCourse}>Add Course</button>
             </div>
         </div>
