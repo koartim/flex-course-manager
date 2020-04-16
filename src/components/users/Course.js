@@ -37,7 +37,8 @@ class Course extends Component {
 
    addCourse = () => {
         alert(`added ${this.state.course.name} to your courses!`)
-     this.state.user.user_metadata.courses.courses.push(this.state.course)
+        this.state.user.user_metadata.courses.courses.push(this.state.course)
+        localStorage.setItem("localUser", JSON.stringify(this.state.user))
    }
 
 render() {
@@ -55,7 +56,7 @@ render() {
                     </Fragment>
                   )}
                 </div>
-                
+
                 <button onClick={this.addCourse}>Add Course</button>
             </div>
         </div>
