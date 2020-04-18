@@ -1,8 +1,24 @@
 {
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Tim",
+      "lastName": "Koar",
+      "email": "koartimothy@gmail.com",
+      "age": 27
+    },
+    {
+      "id": 2,
+      "firstName": "Terrance",
+      "lastName": "Koar",
+      "email": "tkoar@gmail.com",
+      "age": 27
+    }
+  ],
   "courses": [
     {
       "id": 1,
-      "name": "React",
+      "name": "react",
       "difficulty": "intermediate",
       "img_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png",
       "description": "React is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called “components"
@@ -12,7 +28,8 @@
       "name": "Angular",
       "difficulty": "intermediate",
       "img_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/1200px-Angular_full_color_logo.svg.png",
-      "description": "AngularJS is a structural framework for dynamic web applications. It lets you use HTML as your template language and lets you extend HTML's syntax to express your application components clearly and succinctly. Its data binding and dependency injection eliminate much of the code you currently have to write. And it all happens within the browser, making it an ideal partner with any server technology."
+      "description": "AngularJS is a structural framework for dynamic web applications. It lets you use HTML as your template language and lets you extend HTML's syntax to express your application components clearly and succinctly. Its data binding and dependency injection eliminate much of the code you currently have to write. And it all happens within the browser, making it an ideal partner with any server technology.",
+      "user_id": 1
     },
     {
       "id": 3,
@@ -43,32 +60,63 @@
       "description": "Python is an interpreted, object-oriented, high-level programming language with dynamic semantics. Its high-level built in data structures, combined with dynamic typing and dynamic binding, make it very attractive for Rapid Application Development, as well as for use as a scripting or glue language to connect existing components together. Python's simple, easy to learn syntax emphasizes readability and therefore reduces the cost of program maintenance. Python supports modules and packages, which encourages program modularity and code reuse."
     },
     {
-      "id": 7,
-      "name": "CSS 3",
-      "difficulty": "beginner",
-      "img_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1200px-CSS3_logo_and_wordmark.svg.png",
-      "description": "Cascading Style Sheets Level 3 (CSS3) is the iteration of the CSS standard used in the styling and formatting of Web pages. CSS3 incorporates the CSS2 standard with some changes and improvements. A key change is the division of standard into separate modules, which makes it easier to learn and understand"
-    },
-    {
-      "name": "HTML 5",
-      "difficulty": "beginner",
-      "img_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/1200px-HTML5_logo_and_wordmark.svg.png",
-      "description": "HTML 5 is a revision of the Hypertext Markup Language (HTML), the standard programming language for describing the contents and appearance of Web pages. HTML5 was developed to solve compatibility problems that affect the current standard, HTML4.",
-      "id": 8
+      "name": "Haskell",
+      "difficulty": "advanced",
+      "img_url": "https://img.favpng.com/13/11/1/haskell-programming-language-functional-programming-logo-read-eval-print-loop-png-favpng-kwG0cNEWPqC7C4sL8kYhMNzaC.jpg",
+      "description": "Haskell is a general-purpose, statically typed, purely functional programming language with type inference and lazy evaluation. ",
+      "instructor_email": "koartimothy@gmail.com",
+      "userId": "1",
+      "id": 7
     },
     {
       "name": "Pascal",
-      "difficulty": "",
-      "img_url": "https://static-s.aa-cdn.net/img/ios/461310295/6e5c910d970804a9c4b67a40eb3e0a0c?v=1",
-      "description": "Pascal is a procedural programming language that supports structured programming and data structures to encourage good programming practices. Pascal was originally developed in 1970 by Niklaus Wirth and is named after the famous French mathematician Blaise Pascal.",
-      "id": 9
+      "difficulty": "advanced",
+      "img_url": "https://www.logolynx.com/images/logolynx/18/1840c9238b07594d79663985aacdce25.png",
+      "description": "ascal is an imperative and procedural programming language, designed by Niklaus Wirth as a small, efficient language intended to encourage good programming practices using structured programming and data structuring.",
+      "instructor_email": "koartimothy@gmail.com",
+      "id": 8
+    }
+  ],
+  "user_courses": [
+    {
+      "id": 1,
+      "course_id": 1,
+      "user_id": 1
     },
     {
-      "name": "Go!",
-      "difficulty": "",
-      "img_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Go_Logo_Blue.svg/1200px-Go_Logo_Blue.svg.png",
-      "description": "Go is a statically typed, compiled programming language designed at Google by Robert Griesemer, Rob Pike, and Ken Thompson. Go is syntactically similar to C, but with memory safety, garbage collection, structural typing, and CSP-style concurrency",
-      "id": 10
+      "id": 2,
+      "course_id": 2,
+      "user_id": 2
+    },
+    {
+      "id": 3,
+      "course_id": 3,
+      "user_id": 1
+    },
+    {
+      "id": 4,
+      "course_id": 3,
+      "user_id": 2
+    },
+    {
+      "id": 5,
+      "course_id": 4,
+      "user_id": 1
+    },
+    {
+      "id": 7,
+      "course_id": 6,
+      "user_id": 2
+    },
+    {
+      "id": 8,
+      "course_id": 7,
+      "user_id": 1
+    },
+    {
+      "id": 8,
+      "course_id": 9,
+      "user_id": 1
     }
   ]
 }

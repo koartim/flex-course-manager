@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import '../../App.css'
 import { token, domain_url } from '../../token';
+import Spinner from '../../Spinner';
 
 class Course extends Component {
 
@@ -8,7 +9,8 @@ class Course extends Component {
         course: {},
         user: {},
         status: "",
-        local_user: JSON.parse( localStorage.getItem("user") )
+        local_user: JSON.parse( localStorage.getItem("user") ),
+        isLoading: true
     }
 
    componentDidMount() {
@@ -30,7 +32,8 @@ class Course extends Component {
      .then(([res1, res2]) => {
        this.setState({
          course: res1,
-         user: res2
+         user: res2,
+         isLoading: false
        })
      })
    }
@@ -39,10 +42,14 @@ class Course extends Component {
         alert(`added ${this.state.course.name} to your courses!`)
         this.state.user.user_metadata.courses.courses.push(this.state.course)
         localStorage.setItem("localUser", JSON.stringify(this.state.user))
+        
    }
 
 render() {
-  const { course, user, status, local_user } = this.state;
+  const { course, user, status, local_user, isLoading } = this.state;
+  if (isLoading) {
+    return <Spinner />
+  }
     return (
         <div className="card grid-1" style={{margin: '6rem 8rem 8rem 8rem' }}>
             <div className="all-center">
