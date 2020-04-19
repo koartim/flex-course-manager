@@ -1,4 +1,5 @@
 import React, { useReducer } from 'react';
+import "../CreateCourse.css";
 
 const CreateCourse = () => {
 
@@ -41,7 +42,7 @@ const CreateCourse = () => {
    }
 
   return (
-    <div>
+    <div className="CreateCourse">
       <form onChange={handleChange} onSubmit={handleSubmit}>
           <label htmlFor="name">course name</label>
           
@@ -58,7 +59,7 @@ const CreateCourse = () => {
           <label htmlFor="instructor_email">instructor email</label>
         
           <input placeholder="instructor email" type="text" value={input.instructor_email} name="instructor_email"/>
-          {}
+
           <button>Submit</button>
       </form>
       </div>

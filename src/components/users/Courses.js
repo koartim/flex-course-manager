@@ -2,9 +2,9 @@ import React from 'react'
 import CourseItem from './CourseItem';
 import Spinner from '../../Spinner'
 import { useAuth0 } from "../../react-auth0-spa";
+import { connect } from 'react-redux';
 
 const Courses = (props) => {
-
 
     const { loading } = useAuth0();
 
@@ -26,4 +26,10 @@ const courseStyle = {
     gridGap: '1rem'
 }
 
-export default Courses;
+const msp = (state) => {
+    return {
+        courses: state.courses
+    }
+}
+
+export default connect(msp) (Courses);
