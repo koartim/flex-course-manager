@@ -13,6 +13,7 @@
 }
 
 .CreateCourse label {
+    color: rgba(2, 190, 256, 1.5);
     min-width: 100%;
     margin-left: 80px;
     margin-right: 80px;
@@ -20,6 +21,7 @@
 }
 
 .CreateCourse input {
+    color: rgba(2, 190, 256, 1.5);
     flex-grow: 1;
     border: rgba(100, 230, 456, 1);
     background: #f7f1f1;
@@ -38,4 +40,19 @@
     font-weight: bold;
     border: 10x solid rgba(255, 255, 255, .3);
     margin-left: 80px;
+}
+
+.CreateCourse box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.CreateCourse h1 {
+    font-weight: bold;
+    min-width: 500%;
+    margin-left: 80px;
+    margin-right: 80px;
+    color: rgba(2, 190, 256, 1.5);
+    font-size: 2.20rem;
 }

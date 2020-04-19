@@ -43,6 +43,8 @@ const CreateCourse = () => {
 
   return (
     <div className="CreateCourse">
+    <div className="box">
+      <h1>Add Course</h1>&nbsp;
       <form onChange={handleChange} onSubmit={handleSubmit}>
           <label htmlFor="name">course name</label>
           
@@ -62,6 +64,7 @@ const CreateCourse = () => {
 
           <button>Submit</button>
       </form>
+      </div>
       </div>
       )
     }

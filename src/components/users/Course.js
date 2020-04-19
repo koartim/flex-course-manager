@@ -7,9 +7,7 @@ import { connect } from 'react-redux';
 
 class Course extends Component {
 
-    state = {
-        course: {},
-        user: {},
+    state ={
         status: "",
         local_user: JSON.parse( localStorage.getItem("user") ),
         isLoading: true
@@ -39,9 +37,9 @@ class Course extends Component {
    }
 
    addCourse = () => {
-        alert(`added ${this.state.course.name} to your courses!`)
-        this.state.user.user_metadata.courses.courses.push(this.state.course)
-        localStorage.setItem("localUser", JSON.stringify(this.state.user))
+        alert(`added ${this.props.course.name} to your courses!`)
+        this.props.user.user_metadata.courses.courses.push(this.props.course)
+        localStorage.setItem("localUser", JSON.stringify(this.props.user))
         
    }
 
