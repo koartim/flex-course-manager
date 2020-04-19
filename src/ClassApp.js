@@ -40,7 +40,7 @@ class ClassApp extends Component {
         <Navbar icon={"fas fa-clipboard-check"} title={"Flex Course Manager"}/>
         <div>
             <Switch>
-                <Route exact path="/courses" render={routeProps => <Courses {...routeProps} courses={courses}/>} />
+                <Route exact path="/courses" render={routeProps => <Courses {...routeProps}/>} />
                 <Route exact path="/courses/:name" render={routeProps => <Course {...routeProps}/>}/>
                 <Route exact path="/newcourse" render={routeProps => <CreateCourse {...routeProps}/>}/>
                 <PrivateRoute exact path="/profile" render={routeProps => <Profile {...routeProps}/>}/>

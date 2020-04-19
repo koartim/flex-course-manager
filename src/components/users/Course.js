@@ -2,6 +2,8 @@ import React, { Component, Fragment } from 'react'
 import '../../App.css'
 import { token, domain_url } from '../../token';
 import Spinner from '../../Spinner';
+import { FETCH_COURSE, FETCH_USER } from '../../Actions';
+import { connect } from 'react-redux';
 
 class Course extends Component {
 
@@ -30,12 +32,10 @@ class Course extends Component {
        return Promise.all([res1.json(), res2.json()])
      })
      .then(([res1, res2]) => {
-       this.setState({
-         course: res1,
-         user: res2,
-         isLoading: false
-       })
+       this.props.fetchCourse(res1)
+       this.props.fetchUser(res2)
      })
+     this.setState({ isLoading: false })
    }
 
    addCourse = () => {
@@ -46,14 +46,14 @@ class Course extends Component {
    }
 
 render() {
-  const { course, user, status, local_user, isLoading } = this.state;
+  const { course, isLoading } = this.props;
   if (isLoading) {
     return <Spinner />
   }
     return (
         <div className="card grid-1" style={{margin: '6rem 8rem 8rem 8rem' }}>
             <div className="all-center">
-                <img className="round-img" style={{width: "150px"}} src={this.state.course.img_url} alt=""/>
+                <img className="round-img" style={{width: "150px"}} src={course.img_url} alt=""/>
                 <h1>{course.name}</h1>
                 <strong><h3>{course.difficulty}</h3></strong>
                 <div>
@@ -70,4 +70,23 @@ render() {
       )
     }
   }
-export default Course;
+
+const msp = (state) => {
+  return {
+    course: state.course,
+    user: state.user
+  }
+}  
+
+const mdp = (dispatch) => {
+  return {
+    fetchCourse: (course) => {
+      dispatch({type: FETCH_COURSE, payload: course});
+    },
+    fetchUser: (user) => {
+      dispatch({type: FETCH_USER, payload: user});
+    }
+  }
+}
+
+export default connect(msp, mdp) (Course);

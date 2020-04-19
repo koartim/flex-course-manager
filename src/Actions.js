@@ -1,6 +1,15 @@
 export const FETCH_COURSES = "FETCH_COURSES"
 
-export const fetchCourses = (text) => {
-    return {type: FETCH_COURSES, text }
-}
+export const FETCH_COURSE = "FETCH_COURSE"
 
+export const FETCH_USER = "FETCH_USER"
+
+// export const fetchCourses = (text) => {
+//     return {type: FETCH_COURSES, text }
+// }
+
+// export const FETCH_COURSE = "FETCH_COURSE"
+
+// export const fetchCourse = (text) => {
+//     return {type: FETCH_COURSE, text}
+// }
