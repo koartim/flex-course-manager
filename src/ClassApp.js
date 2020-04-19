@@ -7,23 +7,20 @@ import Course from './components/users/Course';
 import Navbar from './components/Navbar';
 import CreateCourse from './components/CreateCourse';
 import Spinner from './Spinner';
+import { FETCH_COURSES } from './Actions';
+import { connect } from 'react-redux';
 
 class ClassApp extends Component {
 
     state = {
-        courses: [],
         loading: true
     }
     async componentDidMount() {
       await fetch("http://localhost:4000/courses/")
         .then(rsp => rsp.json())
-        .then(data => {
-            this.setState({
-                courses: data,
-                loading: false
-            })
-        }).catch(console.error()
-        )
+        .then(data =>  this.props.fetchCourses(data))
+        .catch(console.error())
+        this.setState({ loading: false })
     }
 
     render() {
@@ -51,7 +48,22 @@ class ClassApp extends Component {
         </div>
     </div>
     )
-}
+  }
 }
 
-export default ClassApp
+
+const msp = (state) => {
+    return {
+        courses: state.courses
+    };
+};
+
+const mdp = (dispatch) => {
+    return {
+        fetchCourses: (courses) => {
+            dispatch({type: FETCH_COURSES, payload: courses})
+        }
+    }
+}
+
+export default connect(msp, mdp) (ClassApp)

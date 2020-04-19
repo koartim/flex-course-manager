@@ -1,18 +1,16 @@
-import {FETCH_COURSE} from './Actions';
-
+import { FETCH_COURSES } from './Actions'
 
 const defaultState = {
-    course: {}
+    courses: []
 }
 
-const reducer = (prevState = defaultState , action) => {
+const reducer = (prevState = defaultState, action) => {
     switch(action.type) {
-        case FETCH_COURSE:
-            return {...prevState, course: action.payload};
+        case FETCH_COURSES:          
+            return {...prevState, courses: action.payload};
         default:
             return prevState;
     }
 }
-
 
 export default reducer;

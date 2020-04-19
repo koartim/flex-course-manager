@@ -6,11 +6,12 @@ import * as serviceWorker from './serviceWorker';
 import { Auth0Provider } from "./react-auth0-spa";
 import config from "./auth_config.json";
 import history from './utils/history';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import reducer from './reducer';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { createStore } from 'redux';
-import { Provider } from 'react-redux'; 
-const store = createStore(reducer);
+import { Provider } from 'react-redux'
+import reducer from './reducer';
+
+const store = createStore(reducer)
 
 const onRedirectCallback = appState => {
   history.push(
