@@ -1,4 +1,5 @@
 import React, { useReducer } from 'react';
+import axios from 'axios';
 import "../CreateCourse.css";
 
 const CreateCourse = () => {
@@ -24,21 +25,21 @@ const CreateCourse = () => {
     
     const handleSubmit = async (e) => {
       e.preventDefault();
-      await fetch("http://localhost:4000/courses/", {
+     let rsp = await axios.post("http://localhost:4000/courses/", {
           method: 'post',
           headers: {
               "Content-Type" : "application/json"
           },
-          body: JSON.stringify({
+          data: {
               name: input.name,
               difficulty: input.difficulty,
               img_url: input.img_url,
               description: input.description,
               instructor_email: input.instructor_email
-          })
-      }).then(rsp => rsp.json())
-        .then(data => console.log(data))
-        .catch(console.error())   
+          }
+      })
+      let data = rsp.data
+      console.log(data.data) 
    }
 
   return (

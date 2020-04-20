@@ -75,6 +75,70 @@
       "description": "ascal is an imperative and procedural programming language, designed by Niklaus Wirth as a small, efficient language intended to encourage good programming practices using structured programming and data structuring.",
       "instructor_email": "koartimothy@gmail.com",
       "id": 8
+    },
+    {
+      "name": "Go!",
+      "difficulty": "intermediate",
+      "img_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Go_Logo_Blue.svg/1200px-Go_Logo_Blue.svg.png",
+      "description": "Google backend language",
+      "instructor_email": "koartimothy@gmail.com",
+      "id": 9
+    },
+    {
+      "method": "post",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "data": {
+        "name": "Timothy Koar",
+        "difficulty": "beginner",
+        "img_url": "https://lh3.googleusercontent.com/proxy/QviIbQ-QimV5FqTPDK7PYxJ7vQdI_qwBRnjpf2_b8_Jgl6X622xm-Nxr43pz-Vi7TUaUBmaJDctgMc7yYwFdBMuel5WNpOoSeWYNx-HmofC70X8RPsId4RcuTn1J4Vw8yLktaAYvBbImxCE",
+        "description": "PHP is a popular general-purpose scripting language that is especially suited to web development. It was originally created by Rasmus Lerdorf in 1994; the PHP reference implementation is now produced by The PHP Group.",
+        "instructor_email": "koartimothy@gmail.com"
+      },
+      "id": 10
+    },
+    {
+      "method": "post",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "data": {
+        "name": "Timothy Koar",
+        "difficulty": "beginner",
+        "img_url": "https://lh3.googleusercontent.com/proxy/xrDnCg1wfzvnm2wJTblOsA4uF9DFwCE5kfKkSZj7zbrEckWhuCzXcdainZDNXlk2MCjYUhcDGA9m2TtevuAx0aSvke-vBUpVv7zRwXUU6wXPBHpaSmCfv7qOzX7_Veaytoz0hN46o5-_-ivJ",
+        "description": "PHP is a popular general-purpose scripting language that is especially suited to web development. It was originally created by Rasmus Lerdorf in 1994; the PHP reference implementation is now produced by The PHP Group.",
+        "instructor_email": "koartimothy@gmail.com"
+      },
+      "id": 11
+    },
+    {
+      "method": "post",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "data": {
+        "name": "PHP",
+        "difficulty": "beginner",
+        "img_url": "phph",
+        "description": "PHP is a popular general-purpose scripting language that is especially suited to web development. It was originally created by Rasmus Lerdorf in 1994; the PHP reference implementation is now produced by The PHP Group.",
+        "instructor_email": "PHP is a popular general-purpose scripting language that is especially suited to web development. It was originally created by Rasmus Lerdorf in 1994; the PHP reference implementation is now produced by The PHP Group."
+      },
+      "id": 12
+    },
+    {
+      "method": "post",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "data": {
+        "name": "asdf",
+        "difficulty": "asdf",
+        "img_url": "fdsa",
+        "description": "asdf",
+        "instructor_email": "dfafdsfa"
+      },
+      "id": 13
     }
   ],
   "user_courses": [

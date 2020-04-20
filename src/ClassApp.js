@@ -9,6 +9,7 @@ import CreateCourse from './components/CreateCourse';
 import Spinner from './Spinner';
 import { FETCH_COURSES } from './Actions';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 class ClassApp extends Component {
 
@@ -16,16 +17,17 @@ class ClassApp extends Component {
         loading: true
     }
     async componentDidMount() {
-      await fetch("http://localhost:4000/courses/")
-        .then(rsp => rsp.json())
-        .then(data =>  this.props.fetchCourses(data))
+      await axios.get("http://localhost:4000/courses/")
+        .then(rsp => this.props.fetchCourses(rsp.data))
         .catch(console.error())
-        this.setState({ loading: false })
+        this.setState({
+            loading: false
+        })
     }
 
     render() {
-        const {courses} = this.state
-        if (this.state.loading) {
+        const { loading } = this.state
+        if (loading) {
             return (
             <div>
                 <div>
