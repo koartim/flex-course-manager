@@ -17,34 +17,9 @@ class ClassApp extends Component {
         loading: false
     }
     componentDidMount() {
-      const token = localStorage.getItem("token")
-      if (token) {
-      Promise.all([
-        fetch("http://localhost:3001/api/v1/courses"),
-        fetch("http://localhost:3001/api/v1/auto_login", {
-            headers: {
-              "Authorization": `${token}`
-            }
-          })
-      ])
-        .then(([res1, res2]) => {
-          return Promise.all([res1.json(), res2.json()])
-        })
-        .then(([res1, res2]) => {
-          this.props.fetchCourses(res1)
-          this.props.setCurrentUser(res2)
-        })
-        .catch(console.error())
-        this.setState({
-            loading: false
-        })
-        console.log(this.props.courses)
-        console.log(this.props.currentUser);
-    } else {
         fetch("http://localhost:3001/api/v1/courses")
           .then(rsp => rsp.json())
           .then(data => this.props.fetchCourses(data));
-      }
     }
 
     render() {

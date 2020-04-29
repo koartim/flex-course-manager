@@ -6,8 +6,7 @@ class Login extends React.Component {
 
   state = {
     username: "",
-    password: "",
-    token: localStorage.token
+    password: ""
   }
 
   handleChange = (e) => {
@@ -27,7 +26,6 @@ class Login extends React.Component {
     fetch("http://localhost:3001/api/v1/login", {
       method: "post",
       headers: {
-        "Authorization": `Bearer ${this.state.token}`,
         "Content-Type": "application/json",
         "Accept": "application/json"
       },
@@ -35,6 +33,7 @@ class Login extends React.Component {
     })
     .then(rsp => rsp.json())
     .then(res => {
+      console.log(res);
       localStorage.setItem("token", res.jwt)
       this.props.setCurrentUser(res)
       this.props.history.push("/profile")

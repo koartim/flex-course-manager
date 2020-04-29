@@ -1,76 +1,75 @@
-import React, { useReducer } from 'react';
-import axios from 'axios';
-import "../CreateCourse.css";
+import React from 'react';
+import { connect } from 'react-redux';
 
-const CreateCourse = () => {
+class CreateCourse extends React.Component{
 
-    const [input, setInput] = useReducer(
-      (state, newState) => ({...state, ...newState}),
-      {
-        name: "",
-        difficulty: "",
-        img_url: "",
-        description: "",
-        instructor_email: ""
+  state = {
+    name: "",
+    difficulty: "",
+    img_url: "",
+    description: ""
+  }
+
+    handleSubmit = (e) => {
+      let course = {
+        name: this.state.name,
+        difficulty: this.state.difficulty,
+        img_url: this.state.img_url,
+        description: this.state.description
       }
-    );
-
-    const handleChange = e => {
-      const name = e.target.name;
-      const newValue = e.target.value;
-
-      setInput({[name]: newValue})
-    }
-
-
-    const handleSubmit = async (e) => {
       e.preventDefault();
-     let rsp = await axios.post("http://localhost:3001/courses/", {
-          method: 'post',
-          headers: {
-              "Content-Type" : "application/json"
-          },
-          data: {
-              name: input.name,
-              difficulty: input.difficulty,
-              img_url: input.img_url,
-              description: input.description,
-              instructor_email: input.instructor_email
-          }
+      fetch("http://localhost:3001/api/v1/courses", {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(course)
       })
-      let data = rsp.data
-      console.log(data.data)
+      .then(rsp => rsp.json())
+      .then(data => console.log(data))
    }
 
-  return (
-    <div className="CreateCourse">
-    <div className="box">
-      <h1>Add Course</h1>&nbsp;
-      <form onChange={handleChange} onSubmit={handleSubmit}>
-          <label htmlFor="name">course name</label>
+   handleChange = (e) => {
+     this.setState({
+      [e.target.name]: e.target.value
+     })
+   }
+ render() {
+   console.log(this.props.currentUser);
+   return (
+     <div className="CreateCourse">
+     <div className="box">
+       <h1>Add Course</h1>&nbsp;
+       <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
+           <label htmlFor="name">course name</label>
 
-          <input placeholder="ie. React, Angular..." type="text" value={input.name} name="name"/>
-          <label htmlFor="difficulty">difficulty</label>
+           <input placeholder="ie. React, Angular..." type="text" name="name"/>
+           <label htmlFor="difficulty">difficulty</label>
 
-          <input placeholder="ie. beginner intermediate, advanced..." type="text" value={input.difficulty} name="difficulty"/>
-          <label htmlFor="img_url">image</label>
+           <input placeholder="ie. beginner intermediate, advanced..." type="text" name="difficulty"/>
+           <label htmlFor="img_url">image</label>
 
-          <input placeholder="www.image_src.com" type="text" value={input.img_url} name="img_url"/>
-          <label htmlFor="description">description</label>
+           <input placeholder="www.image_src.com" type="text" name="img_url"/>
+           <label htmlFor="description">description</label>
 
-          <input placeholder="brief bio of the course you want to add" type="text" value={input.description} name="description"/>
-          <label htmlFor="instructor_email">instructor email</label>
+           <input placeholder="brief bio of the course you want to add" type="text" name="description"/>
 
-          <input placeholder="instructor email" type="text" value={input.instructor_email} name="instructor_email"/>
+           <button>Submit</button>
+       </form>
+       </div>
+       </div>
+       )
+     }
+ }
 
-          <button>Submit</button>
-      </form>
-      </div>
-      </div>
-      )
-    }
+ const msp = (state) => {
+   return {
+     currentUser: state.currentUser
+   }
+ }
 
-export default CreateCourse
+export default connect(msp) (CreateCourse)
 
 
 

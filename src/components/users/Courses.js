@@ -14,6 +14,7 @@ class Courses extends React.Component {
     }
 
   render() {
+    console.log(this.props);
     const { loading } = this.state
     if (loading) {
       return <Spinner/>
