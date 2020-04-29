@@ -1,32 +1,55 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom';
-import PrivateRoute from './components/PrivateRoute';
 import Profile from './components/Profile';
 import Courses from './components/users/Courses';
 import Course from './components/users/Course';
 import Navbar from './components/Navbar';
 import CreateCourse from './components/CreateCourse';
+import Login from './Login';
+import SignUp from './SignUp';
 import Spinner from './Spinner';
-import { FETCH_COURSES } from './Actions';
+import { FETCH_COURSES, SET_CURRENT_USER } from './Actions';
 import { connect } from 'react-redux';
-import axios from 'axios';
 
 class ClassApp extends Component {
 
     state = {
-        loading: true
+        loading: false
     }
-    async componentDidMount() {
-      await axios.get("http://localhost:4000/courses/")
-        .then(rsp => this.props.fetchCourses(rsp.data))
+    componentDidMount() {
+      const token = localStorage.getItem("token")
+      if (token) {
+      Promise.all([
+        fetch("http://localhost:3001/api/v1/courses"),
+        fetch("http://localhost:3001/api/v1/auto_login", {
+            headers: {
+              "Authorization": `${token}`
+            }
+          })
+      ])
+        .then(([res1, res2]) => {
+          return Promise.all([res1.json(), res2.json()])
+        })
+        .then(([res1, res2]) => {
+          this.props.fetchCourses(res1)
+          this.props.setCurrentUser(res2)
+        })
         .catch(console.error())
         this.setState({
             loading: false
         })
+        console.log(this.props.courses)
+        console.log(this.props.currentUser);
+    } else {
+        fetch("http://localhost:3001/api/v1/courses")
+          .then(rsp => rsp.json())
+          .then(data => this.props.fetchCourses(data));
+      }
     }
 
     render() {
-        const { loading } = this.state
+      console.log(this.props.courses)
+      const { loading } = this.state
         if (loading) {
             return (
             <div>
@@ -45,7 +68,9 @@ class ClassApp extends Component {
                 <Route exact path="/courses" render={routeProps => <Courses {...routeProps}/>} />
                 <Route exact path="/courses/:name" render={routeProps => <Course {...routeProps}/>}/>
                 <Route exact path="/newcourse" render={routeProps => <CreateCourse {...routeProps}/>}/>
-                <PrivateRoute exact path="/profile" render={routeProps => <Profile {...routeProps}/>}/>
+                <Route exact path="/login" render={routeProps => <Login {...routeProps} />}/>
+                <Route exact path="/signup" render={routeProps => <SignUp {...routeProps}/>}/>
+                <Route exact path="/profile" render={routeProps => <Profile {...routeProps}/>}/>
             </Switch>
         </div>
     </div>
@@ -56,7 +81,8 @@ class ClassApp extends Component {
 
 const msp = (state) => {
     return {
-        courses: state.courses
+        courses: state.courses,
+        currentUser: state.currentUser
     };
 };
 
@@ -64,6 +90,9 @@ const mdp = (dispatch) => {
     return {
         fetchCourses: (courses) => {
             dispatch({type: FETCH_COURSES, payload: courses})
+        },
+        setCurrentUser: (currentUser) => {
+          dispatch({type: SET_CURRENT_USER, payload: currentUser})
         }
     }
 }

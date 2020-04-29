@@ -1,34 +1,15 @@
-import React, { useEffect } from 'react';
-import Navbar from './components/Navbar';
-import { useAuth0 } from "./react-auth0-spa";
-import history from "./utils/history";
+import React from 'react';
 import ClassApp from './ClassApp';
-import Spinner from './Spinner';
-import { token, domain_url } from './token';
 
-function App() {
+class App extends React.Component {
 
-  const { loading, user } = useAuth0();
-
-  localStorage.setItem("user", JSON.stringify({user}))
-
-  if (loading) {
-    return (
-    <div>
-      <div>
-    <Navbar />
-      </div>
-    <Spinner/>
-    </div>
-
-    )
-  }
+render() {
   return (
       <div>
-        <ClassApp />
+        <ClassApp/>
       </div>
-
-  );
+   );
+  }
 }
 
 export default App;

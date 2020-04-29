@@ -15,10 +15,10 @@ class Course extends Component {
 
    componentDidMount() {
      Promise.all([
-       fetch(`http://localhost:4000/courses/${this.props.match.params.name}`),
+       fetch(`http://localhost:3001/courses/${this.props.match.params.name}`),
        fetch(`${domain_url}${this.state.local_user.user.sub}`, {
          headers: {
-           'authorization':`Bearer ${token}`,
+           'authorization': `${token}`,
            'Content-Type': 'application/json'
          }
        })
@@ -40,7 +40,7 @@ class Course extends Component {
         alert(`added ${this.props.course.name} to your courses!`)
         this.props.user.user_metadata.courses.courses.push(this.props.course)
         localStorage.setItem("localUser", JSON.stringify(this.props.user))
-        
+
    }
 
 render() {
@@ -71,10 +71,9 @@ render() {
 
 const msp = (state) => {
   return {
-    course: state.course,
-    user: state.user
+    course: state.course
   }
-}  
+}
 
 const mdp = (dispatch) => {
   return {

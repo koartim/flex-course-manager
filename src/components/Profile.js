@@ -1,36 +1,29 @@
-import React, { Fragment, useState, useEffect } from 'react';
-import { useAuth0 } from "../react-auth0-spa";
-import { token, domain_url } from '.././token'
+import React, { Fragment } from 'react';
 import Spinner from '../Spinner';
+import { connect } from 'react-redux';
 
-const Profile = () => {
-    const { loading, user } = useAuth0();
-    const [ courses, setCourses ] = useState([]);
+class Profile extends React.Component {
 
-  useEffect(() => {
-    const fetchData = async () => {
-      await fetch('http://localhost:4000/users/1/courses') 
-      .then(rsp => rsp.json())
-      .then(data => setCourses(data.courses)
-      )
-    }
-    fetchData();
-  }, [], console.log(courses)
-  
-  )
-    if (loading || !user) {
+render() {
+  const { loading } = this.props
+  console.log(this.props.currentUser)
+    if (loading) {
         return <Spinner/>
     }
-
-    return (
-        <Fragment>
-            <img src={user.picture} className="round-img" style={{width: '60px'}} alt="Profile" />
-             <h2>{user.nickname}</h2>
-             <p>{user.email}</p>
-             <h3>courses</h3>
-             <ul>
-             </ul>
-        </Fragment>
-    )
+  return (
+    <Fragment>
+          <h1>{this.props.currentUser.user.username}</h1>
+          <img style={{width:'120px'}} src={this.props.currentUser.user.img_url} alt="img not found"/>
+          <p>{this.props.currentUser.user.bio}</p>
+    </Fragment>
+  )
+ }
 }
-export default Profile;
+
+const msp = (state) => {
+  return {
+    currentUser: state.currentUser
+  }
+}
+
+export default connect(msp)(Profile);

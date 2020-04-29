@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { Auth0Provider } from "./react-auth0-spa";
-import config from "./auth_config.json";
 import history from './utils/history';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { createStore } from 'redux';
@@ -12,25 +10,25 @@ import { Provider } from 'react-redux'
 import reducer from './reducer';
 
 const store = createStore(reducer)
-
-const onRedirectCallback = appState => {
-  history.push(
-    appState && appState.targetUrl ? appState.targetUrl : window.location.pathname
-  );
-};
+//
+// const onRedirectCallback = appState => {
+//   history.push(
+//     appState && appState.targetUrl ? appState.targetUrl : window.location.pathname
+//   );
+// };
 
 ReactDOM.render(
-  <Auth0Provider
-    domain={config.domain}
-    client_id={config.clientId}
-    redirect_uri={window.location.origin}
-    onRedirectCallback={onRedirectCallback}>
+  // <Auth0Provider
+  //   domain={config.domain}
+  //   client_id={config.clientId}
+  //   redirect_uri={window.location.origin}
+  //   onRedirectCallback={onRedirectCallback}>
     <Provider store={store}>
     <Router history={history}>
     <App />
     </Router>
-    </Provider>
-    </Auth0Provider>,
+    </Provider>,
+    // </Auth0Provider>
   document.getElementById('root')
 );
 

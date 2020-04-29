@@ -18,14 +18,14 @@ const CreateCourse = () => {
     const handleChange = e => {
       const name = e.target.name;
       const newValue = e.target.value;
-      
+
       setInput({[name]: newValue})
     }
 
-    
+
     const handleSubmit = async (e) => {
       e.preventDefault();
-     let rsp = await axios.post("http://localhost:4000/courses/", {
+     let rsp = await axios.post("http://localhost:3001/courses/", {
           method: 'post',
           headers: {
               "Content-Type" : "application/json"
@@ -39,7 +39,7 @@ const CreateCourse = () => {
           }
       })
       let data = rsp.data
-      console.log(data.data) 
+      console.log(data.data)
    }
 
   return (
@@ -48,19 +48,19 @@ const CreateCourse = () => {
       <h1>Add Course</h1>&nbsp;
       <form onChange={handleChange} onSubmit={handleSubmit}>
           <label htmlFor="name">course name</label>
-          
+
           <input placeholder="ie. React, Angular..." type="text" value={input.name} name="name"/>
           <label htmlFor="difficulty">difficulty</label>
-  
+
           <input placeholder="ie. beginner intermediate, advanced..." type="text" value={input.difficulty} name="difficulty"/>
           <label htmlFor="img_url">image</label>
 
           <input placeholder="www.image_src.com" type="text" value={input.img_url} name="img_url"/>
           <label htmlFor="description">description</label>
-   
+
           <input placeholder="brief bio of the course you want to add" type="text" value={input.description} name="description"/>
           <label htmlFor="instructor_email">instructor email</label>
-        
+
           <input placeholder="instructor email" type="text" value={input.instructor_email} name="instructor_email"/>
 
           <button>Submit</button>
@@ -87,18 +87,3 @@ export default CreateCourse
 //      this.setState({message:"Looks good!", textStyle: "success"})
 //    }
 // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

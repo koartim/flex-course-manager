@@ -1,40 +1,41 @@
 import React from 'react';
-import { useAuth0 } from "../react-auth0-spa";
+// import { useAuth0 } from "../react-auth0-spa";
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router'
 import ".././App.css"
 
-const Navbar = (props) => {
+class Navbar extends React.Component {
 
-    const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
-    
-    return (
-        <nav className="navbar bg-primary">
-            <h1>
-                <i className={props.icon}></i> {props.title}
-            </h1>
-            <ul>
-                <li>
-                {!isAuthenticated && (
-                <button className="btn" onClick={() => loginWithRedirect({})}>Log in</button>
-                )}
-                </li>
-          
-                <li>
-                {isAuthenticated && <button className="btn" onClick={() => logout()}>Log out</button>}         
-                </li>    
-           
-              <li>      
-            {isAuthenticated && (
-                <span>
-                    <Link className="btn" exact to="/newcourse">Add Course</Link>&nbsp;
-                    <Link className="btn" exact to="/courses">Courses</Link>
-                    <Link onClick={() => props.history.push("/profile")} className="btn" exact to="profile">Profile</Link>
-                </span>
-            )}
-            </li>
-            </ul>
-        </nav>
-    );
-};
+render() {
+  console.log(this.props);
+  return (
+    <nav className="navbar bg-primary">
+      <h1>
+          <i className={this.props.icon}></i> {this.props.title}
+      </h1>
+      <ul>
+        <li>
+            <Link to="/login">Login </Link>
+        </li>
+        <li>
+          <Link to="/newcourse"> Add Course</Link>
+        </li>
+        <li>
+            <Link to="/signup">Sign Up </Link>
+        </li>
+        <li>
+          <Link to="/profile">Profile</Link>
+        </li>
+        <li>
+          <Link to="/courses">Courses</Link>
+        </li>
+      </ul>
+
+
+    </nav>
+  )
+}
+}
+
+
 export default withRouter(Navbar);
