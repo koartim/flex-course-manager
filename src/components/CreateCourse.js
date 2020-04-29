@@ -15,7 +15,8 @@ class CreateCourse extends React.Component{
         name: this.state.name,
         difficulty: this.state.difficulty,
         img_url: this.state.img_url,
-        description: this.state.description
+        description: this.state.description,
+        user_id: this.props.currentUser.user.id
       }
       e.preventDefault();
       fetch("http://localhost:3001/api/v1/courses", {
