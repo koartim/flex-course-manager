@@ -25,7 +25,12 @@ render() {
           <p>{currentUser.user.bio}</p>
           <h2>Subscriptions</h2>
           {subscriptions.map(sub => (
+            <div>
             <li>{sub.sub_name}</li>
+            <div>
+              <p>{sub.course_description}</p>
+            </div>
+            </div>
           ))}
           <ul>
 

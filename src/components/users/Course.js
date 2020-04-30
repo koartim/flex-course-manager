@@ -32,6 +32,7 @@ class Course extends Component {
        })
        .then(rsp => rsp.json())
        .then(data => console.log(data))
+       alert(`added ${this.props.course.name} to your courses!`)
      }
 
 render() {

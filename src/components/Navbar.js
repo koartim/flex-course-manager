@@ -3,6 +3,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router'
 import ".././App.css"
+import { connect } from 'react-redux';
+import { LOG_OUT_USER } from '../Actions';
 
 class Navbar extends React.Component {
 
@@ -11,7 +13,7 @@ render() {
   return (
     <nav className="navbar bg-primary">
       <h1>
-          <i className={this.props.icon}></i> {this.props.title}
+          <i onClick={() => this.props.history.push("/search")} className={this.props.icon}></i> {this.props.title}
       </h1>
       <ul>
         <li>
@@ -34,8 +36,22 @@ render() {
 
     </nav>
   )
-}
+ }
 }
 
+const msp = (state) => {
+  return {
+    currentUser: state.currentUser,
+    logout: state.logout
+  }
+}
 
-export default withRouter(Navbar);
+const mdp = (dispatch) => {
+  return {
+    logout: ({}) => {
+      dispatch({type: LOG_OUT_USER, payload: {}})
+    }
+  }
+}
+
+export default connect(msp, mdp) (withRouter(Navbar))

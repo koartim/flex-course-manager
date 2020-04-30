@@ -364,13 +364,13 @@ table th {
 }
 
 .navbar a {
-  color: rgba(2, 190, 256, 1.5);
+  color: white;
   padding: 0.45rem;
   margin: 0 0.25rem;
 }
 
 .navbar a:hover {
-  color: rgba(100, 230, 456, 1);
+  color: rgba(200, 440, 456, 5);
 }
 
 .navbar .welcome span {
