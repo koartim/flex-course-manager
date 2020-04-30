@@ -1,13 +1,20 @@
 import React, { Fragment } from 'react';
 import Spinner from '../Spinner';
 import { connect } from 'react-redux';
+import { FETCH_SUBSCRIPTIONS } from '../Actions';
 
 class Profile extends React.Component {
 
+  componentDidMount() {
+    fetch("http://localhost:3001/api/v1/subscriptions")
+      .then(rsp => rsp.json())
+      .then(data => this.props.fetchSubscriptions(data))
+  }
+
 render() {
-  const { loading, currentUser, courses } = this.props
-  const userCourses = courses.filter((course) => course.user_id === currentUser.user.id);
-  console.log(this.props.currentUser)
+
+  const { loading, currentUser, courses, subscriptions } = this.props
+  console.log(subscriptions);
     if (loading) {
         return <Spinner/>
     }
@@ -16,10 +23,12 @@ render() {
           <h1>{currentUser.user.username}</h1>
           <img style={{width:'120px'}} src={currentUser.user.img_url} alt="img not found"/>
           <p>{currentUser.user.bio}</p>
+          <h2>Subscriptions</h2>
+          {subscriptions.map(sub => (
+            <li>{sub.sub_name}</li>
+          ))}
           <ul>
-            {userCourses.map(course => (
-              <li>{course.name}</li>
-            ))}
+
           </ul>
     </Fragment>
   )
@@ -28,9 +37,17 @@ render() {
 
 const msp = (state) => {
   return {
-    currentUser: state.currentUser,
-    courses: state.courses
+    subscriptions: state.subscriptions,
+    currentUser: state.currentUser
   }
 }
 
-export default connect(msp)(Profile);
+const mdp = (dispatch) => {
+  return {
+    fetchSubscriptions: (subscriptions) => {
+      dispatch({type: FETCH_SUBSCRIPTIONS, payload: subscriptions })
+    }
+  }
+}
+
+export default connect(msp, mdp)(Profile);

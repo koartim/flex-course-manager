@@ -8,6 +8,8 @@ export const SET_CURRENT_USER = "SET_CURRENT_USER"
 
 export const LOG_OUT_USER = "LOG_OUT_USER"
 
+export const FETCH_SUBSCRIPTIONS = "FETCH_SUBSCRIPTIONS"
+
 // export const fetchCourses = (text) => {
 //     return {type: FETCH_COURSES, text }
 // }

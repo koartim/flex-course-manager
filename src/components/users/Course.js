@@ -16,14 +16,31 @@ class Course extends Component {
        .then(course => this.props.fetchCourse(course))
      }
 
+     addCourse = () => {
+       fetch("http://localhost:3001/api/v1/subscriptions", {
+         method: "post",
+         headers: {
+           "Content-Type": "application/json",
+           "Accept": "application/json"
+         },
+         body: JSON.stringify({
+           user_id: this.props.currentUser.user.id,
+           course_id: this.props.course.id,
+           sub_name: this.props.course.name,
+           course_description: this.props.course.description
+         })
+       })
+       .then(rsp => rsp.json())
+       .then(data => console.log(data))
+     }
+
 render() {
   const { course, isLoading } = this.props;
-  console.log(course);
   if (isLoading) {
     return <Spinner />
   }
     return (
-        <div className="card grid-1" style={{margin: '6rem 8rem 8rem 8rem' }}>
+        <div className="card grid-1" style={{ margin: '6rem 8rem 8rem 8rem' }}>
             <div className="all-center">
                 <img className="round-img" style={{width: "150px"}} src={course.img_url} alt=""/>
                 <h1>{course.name}</h1>
@@ -45,7 +62,9 @@ render() {
 
 const msp = (state) => {
   return {
-    course: state.course
+    course: state.course,
+    currentUser: state.currentUser,
+    userCourses: state.userCourses
   }
 }
 
