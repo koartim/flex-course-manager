@@ -27,7 +27,8 @@ class Course extends Component {
            user_id: this.props.currentUser.user.id,
            course_id: this.props.course.id,
            sub_name: this.props.course.name,
-           course_description: this.props.course.description
+           course_description: this.props.course.description,
+           sub_img: this.props.course.img_url
          })
        })
        .then(rsp => rsp.json())

@@ -1,6 +1,7 @@
 import React from 'react';
 import { SET_CURRENT_USER } from './Actions';
 import { connect } from 'react-redux';
+import './Login.css';
 
 class Login extends React.Component {
 
@@ -37,19 +38,18 @@ class Login extends React.Component {
       localStorage.setItem("token", res.jwt)
       this.props.setCurrentUser(res)
       this.props.history.push("/profile")
-      console.log(this.props.currentUser);
     })
   }
 
   render() {
     return(
-      <div>
+      <div className="Login">
         <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
-        <label htmlFor="username">uesrname</label>
-          <input type="text" name="username" placeholder="username"/>
-        <label htmlFor="password">password</label>
-          <input type="text" name="password" placeholder="password"/>
-          <button>Submit</button>
+        <label className="label" htmlFor="username">username</label>
+          <input className="input" type="text" name="username" placeholder="username"/>
+        <label className="label" htmlFor="password">password</label>
+          <input className="input" type="text" name="password" placeholder="password"/>
+          <button className="button">Submit</button>
         </form>
       </div>
     )

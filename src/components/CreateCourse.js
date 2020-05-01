@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import '../CreateCourse.css'
 
 class CreateCourse extends React.Component{
 
@@ -28,6 +29,7 @@ class CreateCourse extends React.Component{
       })
       .then(rsp => rsp.json())
       .then(data => console.log(data))
+      this.props.history.push("/courses")
    }
 
    handleChange = (e) => {
@@ -40,7 +42,6 @@ class CreateCourse extends React.Component{
    return (
      <div className="CreateCourse">
      <div className="box">
-       <h1>Add Course</h1>&nbsp;
        <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
            <label htmlFor="name">course name</label>
 

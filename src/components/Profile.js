@@ -1,9 +1,14 @@
 import React, { Fragment } from 'react';
 import Spinner from '../Spinner';
+import Subscription from './users/Subscription';
 import { connect } from 'react-redux';
 import { FETCH_SUBSCRIPTIONS } from '../Actions';
 
 class Profile extends React.Component {
+
+  state = {
+    userSubs: []
+  }
 
   componentDidMount() {
     fetch("http://localhost:3001/api/v1/subscriptions")
@@ -12,9 +17,19 @@ class Profile extends React.Component {
   }
 
 render() {
-
-  const { loading, currentUser, courses, subscriptions } = this.props
-  console.log(subscriptions);
+  const { loading, currentUser, courses } = this.props
+  
+  const subscriptions = this.props.subscriptions.map(sub => {
+    if (sub.user_id === currentUser.user.id) {
+      return <Subscription
+                name={sub.sub_name}
+                image={sub.sub_img}
+                description={sub.course_description}
+                id={sub.id}
+                user_id={sub.user_id}
+            />
+    }
+  })
     if (loading) {
         return <Spinner/>
     }
@@ -24,17 +39,7 @@ render() {
           <img style={{width:'120px'}} src={currentUser.user.img_url} alt="img not found"/>
           <p>{currentUser.user.bio}</p>
           <h2>Subscriptions</h2>
-          {subscriptions.map(sub => (
-            <div>
-            <li>{sub.sub_name}</li>
-            <div>
-              <p>{sub.course_description}</p>
-            </div>
-            </div>
-          ))}
-          <ul>
-
-          </ul>
+              {subscriptions}
     </Fragment>
   )
  }

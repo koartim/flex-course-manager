@@ -1,4 +1,7 @@
 import React from 'react';
+import './SignUp.css'
+import { connect } from 'react-redux';
+import { SET_CURRENT_USER } from './Actions';
 
 class SignUp extends React.Component {
 
@@ -34,13 +37,14 @@ class SignUp extends React.Component {
       })
     })
       .then(rsp => rsp.json())
-      .then(data => localStorage.setItem("token", data.jwt))
-
+      .then(data => this.props.setCurrentUser(data))
+      .then(data =>  localStorage.setItem("token", data.jwt))
+      this.props.history.push("/courses")
   }
 
   render() {
     return(
-        <div>
+        <div className="SignUp">
           <form onSubmit={this.handleSubmit} onChange={this.handleChange}>
           <label htmlForm="username">username</label>
           <input type="text" name="username" placeholder="username"/>
@@ -48,9 +52,9 @@ class SignUp extends React.Component {
           <input type="text" name="password" placeholder="password"/>
           <label htmlForm="confirm">confirm password</label>
           <input type="text" name="confirm" placeholder="confirm password"/>
-          <label htmlForm="bio">Bio</label>
+          <label htmlForm="bio">bio</label>
           <input type="text" name="bio" placeholder="bio"/>
-          <label htmlForm="img_url">Image upload</label>
+          <label htmlForm="img_url">image upload</label>
           <input type="text" name="img_url" placeholder="paste image link"/>
           <button>Submit</button>
           </form>
@@ -59,4 +63,20 @@ class SignUp extends React.Component {
     )
   }
 }
-export default SignUp;
+
+const msp = (state) => {
+  return {
+    currentUser: state.currentUser,
+    setCurrentUser: state.setCurrentUser
+  }
+}
+
+const mdp = (dispatch) => {
+  return {
+    setCurrentUser: (currentUser) => {
+      dispatch({type: SET_CURRENT_USER, payload: currentUser})
+    }
+  }
+}
+
+export default connect(msp, mdp) (SignUp);
