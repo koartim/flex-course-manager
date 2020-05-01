@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { FETCH_COURSES } from '../Actions';
 import '../CreateCourse.css'
 
 class CreateCourse extends React.Component{
@@ -28,8 +29,11 @@ class CreateCourse extends React.Component{
         body: JSON.stringify(course)
       })
       .then(rsp => rsp.json())
-      .then(data => console.log(data))
+      .then(data => {
+      this.props.fetchCourses(data)
       this.props.history.push("/courses")
+      })
+
    }
 
    handleChange = (e) => {
@@ -66,11 +70,19 @@ class CreateCourse extends React.Component{
 
  const msp = (state) => {
    return {
-     currentUser: state.currentUser
+     currentUser: state.currentUser,
+     fetchCourses: state.fetchCourses
    }
  }
 
-export default connect(msp) (CreateCourse)
+ const mdp = (dispatch) => {
+   return {
+     fetchCourses: (courses) => {
+       dispatch({type: FETCH_COURSES, payload: courses})
+     }
+   }
+ }
+export default connect(msp, mdp) (CreateCourse)
 
 
 

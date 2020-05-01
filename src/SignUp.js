@@ -37,9 +37,11 @@ class SignUp extends React.Component {
       })
     })
       .then(rsp => rsp.json())
-      .then(data => this.props.setCurrentUser(data))
-      .then(data =>  localStorage.setItem("token", data.jwt))
-      this.props.history.push("/courses")
+      .then(data => {
+        this.props.setCurrentUser(data)
+        localStorage.setItem("token", data.jwt)
+        this.props.history.push("/profile")
+      })
   }
 
   render() {
