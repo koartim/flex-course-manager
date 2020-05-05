@@ -1,13 +1,14 @@
 import React from 'react';
-import { SET_CURRENT_USER } from './Actions';
+import { SET_CURRENT_USER } from '../../Actions';
 import { connect } from 'react-redux';
-import './Login.css';
+import '../../Login.css';
 
 class Login extends React.Component {
 
   state = {
     username: "",
-    password: ""
+    password: "",
+    errMessage: ""
   }
 
   handleChange = (e) => {
@@ -36,20 +37,27 @@ class Login extends React.Component {
     .then(res => {
       console.log(res);
       localStorage.setItem("token", res.jwt)
-      localStorage.setItem("user_id", res.user.id)
       this.props.setCurrentUser(res)
       this.props.history.push("/profile")
+    })
+    .catch(err => {
+      this.setState({
+        errMessage: err.message
+      })
     })
   }
 
   render() {
+    if (this.state.errMessage) {
+      return <h2>{this.state.errMessage}</h2>
+    }
     return(
       <div className="Login">
         <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
         <label className="label" htmlFor="username">username</label>
           <input className="input" type="text" name="username" placeholder="username"/>
         <label className="label" htmlFor="password">password</label>
-          <input className="input" type="text" name="password" placeholder="password"/>
+          <input className="input" type="password" name="password" placeholder="password"/>
           <button className="button">Submit</button>
         </form>
       </div>

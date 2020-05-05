@@ -1,10 +1,11 @@
-import { FETCH_COURSES, FETCH_COURSE, FETCH_USER, SET_CURRENT_USER, LOG_OUT_USER, FETCH_SUBSCRIPTIONS } from './Actions'
+import { FETCH_COURSES, FETCH_COURSE, FETCH_USER, SET_CURRENT_USER, LOG_OUT_USER, FETCH_SUBSCRIPTIONS, FETCH_SUBSCRIPTION } from './Actions'
 
 const defaultState = {
     courses: [],
     course: {},
-    currentUser: {},
-    subscriptions: []
+    currentUser: null,
+    subscriptions: [],
+    subscription: {}
 }
 
 const reducer = (prevState = defaultState, action) => {
@@ -20,7 +21,9 @@ const reducer = (prevState = defaultState, action) => {
         case LOG_OUT_USER:
             return {...prevState, currentUser: action.payload };
           case FETCH_SUBSCRIPTIONS:
-            return {...prevState, subscriptions: action.payload}
+            return {...prevState, subscriptions: action.payload };
+          case FETCH_SUBSCRIPTION:
+            return {...prevState, subscription: action.payload };
         default:
             return prevState;
     }

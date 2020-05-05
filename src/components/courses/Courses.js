@@ -7,30 +7,29 @@ import { connect } from 'react-redux';
 class Courses extends React.Component {
 
     state = {
-      loading: true,
-      localcourses: []
+      loading: true
     }
-
     componentDidMount() {
-      fetch("http://localhost:3001/api/v1/courses")
-        .then(rsp => rsp.json())
-        .then(courses => {
-          this.setState({
-            localcourses: courses,
-            loading: false
-          })
-        })
+
+        fetch("http://localhost:3001/api/v1/courses")
+          .then(rsp => rsp.json())
+          .then(data => {
+            this.props.fetchCourses(data)
+            this.setState({
+              loading: false
+            })
+        });
     }
 
   render() {
-    console.log(this.props);
-    const { loading, localcourses } = this.state
+    const { courses } = this.props
+    const { loading } = this.state
     if (loading) {
       return <Spinner/>
     }
     return (
         <div style={courseStyle}>
-            {localcourses.map(course => (
+            {courses.map(course => (
                 <CourseItem course={course} key={course.id}/>
             ))}
         </div>

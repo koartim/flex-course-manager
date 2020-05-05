@@ -2,9 +2,9 @@ import React from 'react';
 // import { useAuth0 } from "../react-auth0-spa";
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router'
-import ".././App.css"
+import "../../App.css"
 import { connect } from 'react-redux';
-import { LOG_OUT_USER } from '../Actions';
+import { LOG_OUT_USER } from '../../Actions';
 
 class Navbar extends React.Component {
 

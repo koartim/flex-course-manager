@@ -1,7 +1,7 @@
 import React from 'react';
-import './SignUp.css'
+import '../../SignUp.css'
 import { connect } from 'react-redux';
-import { SET_CURRENT_USER } from './Actions';
+import { SET_CURRENT_USER } from '../../Actions';
 
 class SignUp extends React.Component {
 
@@ -20,6 +20,9 @@ class SignUp extends React.Component {
   }
 
   handleSubmit = (e) => {
+    if (this.state.password !== this.state.confirm) {
+      alert("passwords must match")
+    }
     e.preventDefault();
     fetch("http://localhost:3001/api/v1/users", {
       method: "post",
@@ -28,12 +31,10 @@ class SignUp extends React.Component {
         Accept: "application/json"
       },
       body: JSON.stringify({
-        user: {
           username: this.state.username,
           password: this.state.password,
           bio: this.state.bio,
           img_url: this.state.img_url
-        }
       })
     })
       .then(rsp => rsp.json())
@@ -41,6 +42,7 @@ class SignUp extends React.Component {
         this.props.setCurrentUser(data)
         localStorage.setItem("token", data.jwt)
         this.props.history.push("/profile")
+        console.log(data);
       })
   }
 
@@ -51,9 +53,9 @@ class SignUp extends React.Component {
           <label htmlForm="username">username</label>
           <input type="text" name="username" placeholder="username"/>
           <label htmlForm="password">password</label>
-          <input type="text" name="password" placeholder="password"/>
+          <input type="password" name="password" placeholder="password"/>
           <label htmlForm="confirm">confirm password</label>
-          <input type="text" name="confirm" placeholder="confirm password"/>
+          <input type="password" name="confirm" placeholder="confirm password"/>
           <label htmlForm="bio">bio</label>
           <input type="text" name="bio" placeholder="bio"/>
           <label htmlForm="img_url">image upload</label>

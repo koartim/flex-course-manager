@@ -1,34 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import ClassApp from './ClassApp';
 import * as serviceWorker from './serviceWorker';
-import history from './utils/history';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux'
 import reducer from './reducer';
+import thunk from 'redux-thunk';
 
-const store = createStore(reducer)
-//
-// const onRedirectCallback = appState => {
-//   history.push(
-//     appState && appState.targetUrl ? appState.targetUrl : window.location.pathname
-//   );
-// };
+const store = createStore(reducer, applyMiddleware(thunk))
 
 ReactDOM.render(
-  // <Auth0Provider
-  //   domain={config.domain}
-  //   client_id={config.clientId}
-  //   redirect_uri={window.location.origin}
-  //   onRedirectCallback={onRedirectCallback}>
     <Provider store={store}>
-    <Router history={history}>
-    <App />
+    <Router>
+    <ClassApp />
     </Router>
     </Provider>,
-    // </Auth0Provider>
   document.getElementById('root')
 );
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { FETCH_COURSES } from '../Actions';
-import '../CreateCourse.css'
+import { FETCH_COURSES } from '../../Actions';
+import '../../CreateCourse.css'
 
 class CreateCourse extends React.Component{
 
@@ -10,6 +10,12 @@ class CreateCourse extends React.Component{
     difficulty: "",
     img_url: "",
     description: ""
+  }
+
+  handleChange = (e) => {
+    this.setState({
+     [e.target.name]: e.target.value
+    })
   }
 
     handleSubmit = (e) => {
@@ -36,11 +42,6 @@ class CreateCourse extends React.Component{
 
    }
 
-   handleChange = (e) => {
-     this.setState({
-      [e.target.name]: e.target.value
-     })
-   }
  render() {
    console.log(this.props.currentUser);
    return (
@@ -70,7 +71,6 @@ class CreateCourse extends React.Component{
 
  const msp = (state) => {
    return {
-     currentUser: state.currentUser,
      fetchCourses: state.fetchCourses
    }
  }

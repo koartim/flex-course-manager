@@ -10,12 +10,4 @@ export const LOG_OUT_USER = "LOG_OUT_USER"
 
 export const FETCH_SUBSCRIPTIONS = "FETCH_SUBSCRIPTIONS"
 
-// export const fetchCourses = (text) => {
-//     return {type: FETCH_COURSES, text }
-// }
-
-// export const FETCH_COURSE = "FETCH_COURSE"
-
-// export const fetchCourse = (text) => {
-//     return {type: FETCH_COURSE, text}
-// }
+export const FETCH_SUBSCRIPTION = "FETCH_SUBSCRIPTION"

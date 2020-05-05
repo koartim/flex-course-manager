@@ -1,14 +1,17 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom';
-import Profile from './components/Profile';
-import Courses from './components/users/Courses';
-import Course from './components/users/Course';
-import Navbar from './components/Navbar';
-import CreateCourse from './components/CreateCourse';
-import Login from './Login';
-import SignUp from './SignUp';
-import Search from './components/Search';
+import Profile from './components/layout/Profile';
+import Courses from './components/courses/Courses';
+import Course from './components/courses/Course';
+import Navbar from './components/layout/Navbar';
+import CreateCourse from './components/courses/CreateCourse';
+import Login from './components/layout/Login';
+import SignUp from './components/layout/SignUp';
+import Search from './components/layout/Search';
+import Quiz from './components/Quiz';
 import Spinner from './Spinner';
+import Subscriptions from './components/subscriptions/Subscriptions';
+import Subscription from './components/subscriptions/Subscription';
 import { FETCH_COURSES, SET_CURRENT_USER } from './Actions';
 import { connect } from 'react-redux';
 
@@ -17,14 +20,27 @@ class ClassApp extends Component {
     state = {
         loading: false
     }
+
     componentDidMount() {
-        fetch("http://localhost:3001/api/v1/courses")
+      const token = localStorage.getItem("token")
+      if (token) {
+        fetch("http://localhost:3001/api/v1/auto_login", {
+            headers: {
+              "Authorization": `Bearer ${token}`
+            }
+          })
           .then(rsp => rsp.json())
-          .then(data => this.props.fetchCourses(data));
-    }
+          .then(response => {
+              this.props.setCurrentUser(response);
+            }
+          );
+          this.setState({
+            loading: false
+          })
+        }
+      }
 
     render() {
-      console.log(this.props.courses)
       const { loading } = this.state
         if (loading) {
             return (
@@ -48,6 +64,9 @@ class ClassApp extends Component {
                 <Route exact path="/login" render={routeProps => <Login {...routeProps} />}/>
                 <Route exact path="/signup" render={routeProps => <SignUp {...routeProps}/>}/>
                 <Route exact path="/profile" render={routeProps => <Profile {...routeProps}/>}/>
+                <Route exact path="/subscriptions" render={routeProps => <Subscriptions {...routeProps}/>}/>
+                <Route exact path="/subscriptions/:id" render={routeProps => <Subscription {...routeProps}/>}/>
+                <Route exact path="/quiz" render={routeProps => <Quiz {...routeProps}/>} />
             </Switch>
         </div>
     </div>
